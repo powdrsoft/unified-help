@@ -15,11 +15,12 @@ func Test_man(t *testing.T) {
 	}
 }
 
+/*
 func Test_tldr(t *testing.T) {
 	if err := Exec("tldr", args...); err != nil {
 		t.Error(err)
 	}
-}
+}*/
 
 func Test_mdcat(t *testing.T) {
 	workDir, err := os.Getwd()
