@@ -43,8 +43,8 @@ func Test_rootDir(t *testing.T) {
 
 func Test_cobraCmd(t *testing.T) {
 	ExecCobraCmd("intellij")
-	ExecCobraCmd("vscode")
-	ExecCobraCmd("eclipse")
+	//ExecCobraCmd("vscode")
+	//ExecCobraCmd("eclipse")
 }
 
 func Test_getFiles(t *testing.T) {
