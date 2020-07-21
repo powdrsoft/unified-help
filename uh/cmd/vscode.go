@@ -16,8 +16,7 @@ limitations under the License.
 package cmd
 
 import (
-	"github.com/tobias-ericsson/powdrsoft/uh/helpers"
-
+	"github.com/powdrsoft/unified-help/uh/helpers"
 	"github.com/spf13/cobra"
 )
 
