@@ -15,7 +15,7 @@ Supports only + - * /
 Does not support ( and ).`,
 
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(processArgs(args))
+		fmt.Println(calc(args))
 	},
 }
 
@@ -23,7 +23,7 @@ func init() {
 	rootCmd.AddCommand(calcCmd)
 }
 
-func processArgs(args []string) float64 {
+func calc(args []string) float64 {
 	result := toNum(args[0])
 	for i := 0; i < len(args)-1; i++ {
 		switch args[i] {
