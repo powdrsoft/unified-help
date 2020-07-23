@@ -1,13 +1,12 @@
 package cmd
 
 import (
-	"fmt"
 	"testing"
 )
 
 func Test_Add(t *testing.T) {
 	var args = []string{"24", "+", "2"}
-	result, _ := processArgs(args)
+	result := processArgs(args)
 	if result != 26 {
 		t.Errorf("%f != 26", result)
 	}
@@ -15,14 +14,16 @@ func Test_Add(t *testing.T) {
 
 func Test_Div(t *testing.T) {
 	var args = []string{"24", "/", "2"}
-	result, _ := processArgs(args)
-	if result != 26 {
+	result := processArgs(args)
+	if result != 12 {
 		t.Errorf("%f != 12", result)
 	}
 }
 
-func Test_complexCalc(t *testing.T) {
+func Test_ComplexCalc(t *testing.T) {
 	var args = []string{"24", "+", "2", "-", "10"}
-	result, _ := processArgs(args)
-	fmt.Println(result)
+	result := processArgs(args)
+	if result != 16 {
+		t.Errorf("%f != 16", result)
+	}
 }
