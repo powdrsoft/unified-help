@@ -1,0 +1,8 @@
+baseURL = "https://powdrsoft.github.io/unified-help/"
+languageCode = "en-us"
+title = "Unified Help"
+theme = "beautifulhugo"
+
+enableGitInfo = true
+[Params]
+  commit = "https://github.com/powdrsoft/unified-help/tree/"

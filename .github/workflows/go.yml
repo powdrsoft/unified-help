@@ -21,6 +21,23 @@ jobs:
 
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
+      with:
+        submodules: true  # Fetch Hugo themes
+        fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
+
+    # Step 3 - Clean and don't fail
+    - name: Clean public directory
+      run: rm -rf docs
+
+      # Step 4 - Builds the site using the latest version of Hugo
+      # Also specifies the theme we want to use
+    - name: Build Hugo
+      run: cd hugo; hugo -d ../docs
 
     - name: Get dependencies
       run: |
@@ -32,7 +49,7 @@ jobs:
             dep ensure
         fi
 
-    - name: Build
+    - name: Build uh
       run: make build
 
     - name: Test
