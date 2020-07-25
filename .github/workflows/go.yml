@@ -30,14 +30,11 @@ jobs:
       with:
         hugo-version: 'latest'
 
-    # Step 3 - Clean and don't fail
-    - name: Clean public directory
+    - name: Clean docs
       run: rm -rf docs
 
-      # Step 4 - Builds the site using the latest version of Hugo
-      # Also specifies the theme we want to use
-    - name: Build Hugo
-      run: cd hugo; hugo -d ../docs
+    - name: Build Hugo in docs
+      run: cd hugo; hugo -d ../docs; touch ../docs/.nojekyll
 
     - name: Get dependencies
       run: |
