@@ -4,9 +4,11 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"os/user"
 	"path"
 	"path/filepath"
 	"runtime"
+	"strings"
 )
 
 func Exec(cmd string, args ...string) error {
@@ -26,8 +28,8 @@ func Exec(cmd string, args ...string) error {
 	return nil
 }
 
-func ExecCobraCmd(name string) {
-	path := filepath.Join(RootDir(), "notes", name, "index.md")
+func ExecCobraCmd(path string) {
+	//path := filepath.Join(RootDir(), "notes", name, "index.md")
 	fmt.Println(path)
 	Exec("mdcat", path)
 }
@@ -39,21 +41,29 @@ func RootDir() string {
 }
 
 type mdFile struct {
-	path string
-	name string
+	Path string
+	Name string
 }
 
-func getMDFiles(dir string) []mdFile {
-	var files []mdFile
-	err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
-		if (filepath.Ext(path)) == ".md" {
-			fmt.Println(info.Name())
-			files = append(files, mdFile{path, info.Name()[:len(info.Name())-3]})
+func GetMDFiles(locations ...string) map[string]string {
+	var files = make(map[string]string)
+	for _, location := range locations {
+
+		if strings.HasPrefix(location, "~/") {
+			usr, _ := user.Current()
+			location = filepath.Join(usr.HomeDir, location[2:])
 		}
-		return nil
-	})
-	if err != nil {
-		panic(err)
+
+		err := filepath.Walk(location, func(path string, info os.FileInfo, err error) error {
+			if (filepath.Ext(path)) == ".md" {
+				fmt.Println(info.Name())
+				files[info.Name()[:len(info.Name())-3]] = path
+			}
+			return nil
+		})
+		if err != nil {
+			panic(err)
+		}
 	}
 	return files
 }

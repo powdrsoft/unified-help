@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -38,8 +39,7 @@ func Test_mdcat(t *testing.T) {
 }
 
 func Test_rootDir(t *testing.T) {
-	d := RootDir()
-	fmt.Println(d)
+	assert(t, RootDir(), "/unified-help/uh")
 }
 
 func Test_cobraCmd(t *testing.T) {
@@ -49,8 +49,28 @@ func Test_cobraCmd(t *testing.T) {
 }
 
 func Test_getFiles(t *testing.T) {
-	files := getMDFiles("/Users/tericsson/dev/me/")
+	files := GetMDFiles("testdata/", "~/Bad/me/", "/Bad/Location", "https://notes.tibbes.com/notes")
+	assert(t, len(files), 3)
 	for _, file := range files {
 		fmt.Println(file)
+	}
+}
+
+func assert(t *testing.T, result interface{}, expected interface{}) {
+	fmt.Println(result)
+	switch e := expected.(type) {
+	case bool:
+		if result.(bool) != e {
+			t.Errorf("%t != %t", result, e)
+		}
+	case int:
+		if result.(int) < e {
+			t.Errorf("%d < %d", result, e)
+		}
+	default:
+		if !strings.Contains(result.(string), expected.(string)) {
+			t.Errorf("%s does not contain %s", result, e)
+		}
+
 	}
 }

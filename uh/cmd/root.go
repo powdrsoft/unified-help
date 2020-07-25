@@ -22,6 +22,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"os"
+	"os/user"
 	"strings"
 )
 
@@ -96,7 +97,8 @@ func Map(vs []string, f func(string) string) []string {
 }
 
 func init() {
-	cobra.OnInitialize(initConfig)
+	//cobra.OnInitialize(initConfig)
+	initConfig()
 	fmt.Println("READING CONFIG")
 	fmt.Println(viper.Get("color"))
 	fmt.Println(viper.Get("notes"))
@@ -111,22 +113,23 @@ func init() {
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 
-	rootCmd.AddCommand(createFromConfig("intellij"))
+	//rootCmd.AddCommand(createFromConfig("intellij"))
 }
 
-func createFromConfig(name string) *cobra.Command {
+func getMDFilesFromConfigNotes(configNotes []string) {
+
+}
+
+func createFromConfig(name string, path string) *cobra.Command {
+	usr, _ := user.Current()
 	var cmd = &cobra.Command{
 		Use:   name,
-		Short: "A brief description of your command",
+		Short: strings.Replace(path, usr.HomeDir, "~", 1),
 		Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+and usage of using your command. For example:` + path,
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Println(cmd.Name())
-			helpers.ExecCobraCmd(cmd.Name())
+			helpers.ExecCobraCmd(path)
 		},
 	}
 	return cmd
@@ -134,7 +137,6 @@ to quickly create a Cobra application.`,
 
 // initConfig reads in config file and ENV variables if set.
 func initConfig() {
-	fmt.Println("READING CONFIG 1")
 	if cfgFile != "" {
 		// Use config file from the flag.
 		viper.SetConfigFile(cfgFile)
@@ -150,15 +152,17 @@ func initConfig() {
 		viper.AddConfigPath(home)
 		viper.SetConfigName(".uh")
 	}
-	fmt.Println("READING CONFIG 2")
 	viper.AutomaticEnv() // read in environment variables that match
 
-	fmt.Println("READING CONFIG")
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 
-		fmt.Println(viper.Get("color"))
-		fmt.Println(viper.Get("notes"))
+		mdFiles := helpers.GetMDFiles(viper.GetStringSlice("notes")...)
+
+		for key, value := range mdFiles {
+			//fmt.Printf("creating %s", f.Name)
+			rootCmd.AddCommand(createFromConfig(key, value))
+		}
 	}
 }
