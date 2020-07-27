@@ -58,8 +58,8 @@ jobs:
       run: |
         git config user.name "powdrsoft"
         git config user.email "info@powdrsoft.com"
-        git diff --exit-code
-        hasChanges=$(git diff --exit-code)
+        git diff
+        hasChanges=$(git diff)
         echo "hasChanges ${hasChanges}"
         if [ ${hasChanges} -eq 0 ]; then
           echo "nothing to commit"
