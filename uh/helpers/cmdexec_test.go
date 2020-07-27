@@ -56,6 +56,10 @@ func Test_getFiles(t *testing.T) {
 	}
 }
 
+func Test_getFilesFromHttp(t *testing.T) {
+	//GetMDFilesFromHttp("https://github.com/powdrsoft/unified-help/tree/master/hugo/content/posts")
+}
+
 func assert(t *testing.T, result interface{}, expected interface{}) {
 	fmt.Println(result)
 	switch e := expected.(type) {

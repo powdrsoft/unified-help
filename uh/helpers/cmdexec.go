@@ -67,3 +67,32 @@ func GetMDFiles(locations ...string) map[string]string {
 	}
 	return files
 }
+
+/*
+func GetMDFilesFromHttp(location string){
+
+	walkFn := func(path string, fi os.FileInfo, r io.ReadSeeker, err error) error {
+		fmt.Println(path)
+		if err != nil {
+			log.Printf("can't stat file %s: %v\n", path, err)
+			return nil
+		}
+		fmt.Println(path)
+		if !fi.IsDir() {
+			b, err := ioutil.ReadAll(r)
+			if err != nil {
+				log.Printf("can't read file %s: %v\n", path, err)
+				return nil
+			}
+			fmt.Printf("%q\n", b)
+		}
+		return nil
+	}
+
+	fmt.Println("whatat")
+	err := vfsutil.WalkFiles(http.(location), "/", walkFn)
+	if err != nil {
+		panic(err)
+	}
+
+}*/
