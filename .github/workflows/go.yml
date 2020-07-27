@@ -36,6 +36,12 @@ jobs:
     - name: Build Hugo in docs
       run: cd hugo; hugo -d ../docs; touch ../docs/.nojekyll
 
+    - name: Build Hugo in docs
+      run: cd hugo; hugo -d ../docs; touch ../docs/.nojekyll
+
+    - name: Git Push Hugo docs
+      run: git add docs; git commit -m "hugo docs"; git push
+
     - name: Get dependencies
       run: |
         go get github.com/samfoo/mdcat
