@@ -44,9 +44,9 @@ jobs:
 
 #uh site https://powdrsoft.github.io/unified-help/
     - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
 
     - name: Clean /docs
       run: rm -rf docs
