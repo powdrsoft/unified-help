@@ -16,7 +16,6 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 
 in .bashrc or .zshrc
 
-different stuff here
 ```
 stty -ixon
 ```

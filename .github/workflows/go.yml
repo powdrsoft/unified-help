@@ -9,6 +9,7 @@ on:
 jobs:
 
   build:
+#uh cli
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -25,28 +26,6 @@ jobs:
         submodules: true  # Fetch Hugo themes
         fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: 'latest'
-
-    - name: Clean docs
-      run: rm -rf docs
-
-    - name: Build Hugo in docs
-      run: cd hugo; hugo -d ../docs; touch ../docs/.nojekyll
-
-    - name: Git Push Hugo docs
-      run: |
-        git config user.name "powdrsoft"; git config user.email "info@powdrsoft.com";
-        if [ git diff --exit-code --quiet ]; then
-          echo "nothing to commit";
-        else
-           git add docs
-          git commit -m "hugo docs"
-        fi
-        git push
-
     - name: Get dependencies
       run: |
         go get github.com/samfoo/mdcat
@@ -62,3 +41,26 @@ jobs:
 
     - name: Test
       run: make test
+
+#uh site https://powdrsoft.github.io/unified-help/
+    - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+    - name: Clean /docs
+      run: rm -rf docs
+
+    - name: Build Hugo in /docs
+      run: cd hugo; hugo -d ../docs; touch ../docs/.nojekyll
+
+    - name: Git commit & push /docs
+      run: |
+        git config user.name "powdrsoft"; git config user.email "info@powdrsoft.com";
+        if [ git diff --exit-code --quiet ]; then
+          echo "nothing to commit";
+        else
+          git add docs
+          git commit -m "hugo docs"
+        fi
+        git push
