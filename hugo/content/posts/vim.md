@@ -1,6 +1,6 @@
 ---
 title: "vim"
-date: 2020-07-23T17:59:39+02:00
+date: 2020-06-03T17:59:39+02:00
 draft: false
 ---
 ### How to map save to Ctrl+s
