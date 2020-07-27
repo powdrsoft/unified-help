@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://powdrsoft.github.io/unified-help/posts/</loc>
+    <lastmod>2020-07-25T22:09:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://powdrsoft.github.io/unified-help/</loc>
+    <lastmod>2020-07-25T22:09:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://powdrsoft.github.io/unified-help/posts/vim/</loc>
+    <lastmod>2020-07-25T22:09:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://powdrsoft.github.io/unified-help/posts/ssh/</loc>
+    <lastmod>2020-07-23T22:10:26+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://powdrsoft.github.io/unified-help/posts/find/</loc>
+    <lastmod>2020-07-23T22:10:26+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://powdrsoft.github.io/unified-help/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://powdrsoft.github.io/unified-help/tags/</loc>
+  </url>
+  
+</urlset>
