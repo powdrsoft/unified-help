@@ -44,7 +44,6 @@ find .</description>
       <description>How to map save to Ctrl+s Why? To avoid freezing the terminal by mistake.
 in .vimrc
 noremap &amp;lt;silent&amp;gt; &amp;lt;C-S&amp;gt; :update&amp;lt;CR&amp;gt; vnoremap &amp;lt;silent&amp;gt; &amp;lt;C-S&amp;gt; &amp;lt;C-C&amp;gt;:update&amp;lt;CR&amp;gt; inoremap &amp;lt;silent&amp;gt; &amp;lt;C-S&amp;gt; &amp;lt;C-O&amp;gt;:update&amp;lt;CR&amp;gt; in .bashrc or .zshrc
-different stuff here
 stty -ixon When VIM is frozen, don&amp;rsquo;t accept input, and you can&amp;rsquo;t close it? Probably you did Ctrl+S by mistake - it freezes your terminal, type Ctrl+Q to get it going again.</description>
     </item>
     
