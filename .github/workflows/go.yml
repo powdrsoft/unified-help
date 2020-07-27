@@ -61,7 +61,7 @@ jobs:
         git diff
         hasChanges=$(git diff)
         echo "hasChanges ${hasChanges}"
-        if [ ${hasChanges} -eq 0 ]; then
+        if [ ${#hasChanges} -eq 0 ]; then
           echo "nothing to commit"
         else
           echo "something to commit"
