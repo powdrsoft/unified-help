@@ -166,54 +166,6 @@
         <div class="posts-list">
           
             <article class="post-preview">
-    <a href="https://powdrsoft.github.io/unified-help/posts/vim/">
-        <h2 class="post-title">vim</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on July 23, 2020
-  
-    &nbsp;(Last modified on July 25, 2020)
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h3 id="how-to-map-save-to-ctrls">How to map save to Ctrl+s</h3>
-<p>Why? To avoid freezing the terminal by mistake.</p>
-<p>in .vimrc</p>
-<pre><code>noremap &lt;silent&gt; &lt;C-S&gt;          :update&lt;CR&gt;
-vnoremap &lt;silent&gt; &lt;C-S&gt;         &lt;C-C&gt;:update&lt;CR&gt;
-inoremap &lt;silent&gt; &lt;C-S&gt;         &lt;C-O&gt;:update&lt;CR&gt;
-</code></pre><p>in .bashrc or .zshrc</p>
-<pre><code>stty -ixon
-</code></pre><h3 id="when-vim-is-frozen-dont-accept-input-and-you-cant-close-it">When VIM is frozen, don&rsquo;t accept input, and you can&rsquo;t close it?</h3>
-<p>Probably you did Ctrl+S by mistake - it freezes your terminal, type Ctrl+Q to get it going again.</p>
-
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
     <a href="https://powdrsoft.github.io/unified-help/posts/ssh/">
         <h2 class="post-title">ssh</h2>
         
@@ -288,6 +240,55 @@ find /home -user exampleuser -mtime -7 -iname &quot;.db&quot; Find and Process F
 find . -name &quot;*.txt&quot; -exec chmod o+r '{}' \; Find and Delete Files
 find .
         <a href="https://powdrsoft.github.io/unified-help/posts/find/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://powdrsoft.github.io/unified-help/posts/vim/">
+        <h2 class="post-title">vim</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on June 3, 2020
+  
+    &nbsp;(Last modified on July 27, 2020)
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h3 id="how-to-map-save-to-ctrls">How to map save to Ctrl+s</h3>
+<p>Why? To avoid freezing the terminal by mistake.</p>
+<p>in .vimrc</p>
+<pre><code>noremap &lt;silent&gt; &lt;C-S&gt;          :update&lt;CR&gt;
+vnoremap &lt;silent&gt; &lt;C-S&gt;         &lt;C-C&gt;:update&lt;CR&gt;
+inoremap &lt;silent&gt; &lt;C-S&gt;         &lt;C-O&gt;:update&lt;CR&gt;
+</code></pre><p>in .bashrc or .zshrc</p>
+<p>different stuff here</p>
+<pre><code>stty -ixon
+</code></pre><h3 id="when-vim-is-frozen-dont-accept-input-and-you-cant-close-it">When VIM is frozen, don&rsquo;t accept input, and you can&rsquo;t close it?</h3>
+<p>Probably you did Ctrl+S by mistake - it freezes your terminal, type Ctrl+Q to get it going again.</p>
+
         
     </div>
 
