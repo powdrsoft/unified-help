@@ -7,6 +7,9 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/mapstructure v1.3.2 // indirect
 	github.com/pelletier/go-toml v1.8.0 // indirect
+	github.com/russross/blackfriday v1.5.2 // indirect
+	github.com/samfoo/ansi v0.0.0-20160124022901-b6bd2ded7189 // indirect
+	github.com/samfoo/mdcat v0.0.0-20160126001438-3e3d5157e737 // indirect
 	github.com/spf13/afero v1.3.1 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
 	github.com/spf13/cobra v1.0.0
