@@ -36,9 +36,6 @@ jobs:
     - name: Build Hugo in docs
       run: cd hugo; hugo -d ../docs; touch ../docs/.nojekyll
 
-    - name: Build Hugo in docs
-      run: cd hugo; hugo -d ../docs; touch ../docs/.nojekyll
-
     - name: Git Push Hugo docs
       run: git config user.name "powdrsoft"; git config user.email "info@powdrsoft.com"; git add docs; git commit -m "hugo docs"; git push
 
