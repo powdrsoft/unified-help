@@ -99,9 +99,9 @@ func Map(vs []string, f func(string) string) []string {
 func init() {
 	//cobra.OnInitialize(initConfig)
 	initConfig()
-	fmt.Println("READING CONFIG")
-	fmt.Println(viper.Get("color"))
-	fmt.Println(viper.Get("notes"))
+	//fmt.Println("READING CONFIG")
+	//fmt.Println(viper.Get("color"))
+	//fmt.Println(viper.Get("notes"))
 
 	// Here you will define your flags and configuration settings.
 	// Cobra supports persistent flags, which, if defined here,
@@ -125,10 +125,9 @@ func createFromConfig(name string, path string) *cobra.Command {
 	var cmd = &cobra.Command{
 		Use:   name,
 		Short: strings.Replace(path, usr.HomeDir, "~", 1),
-		Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:` + path,
+		Long:  `Source: ` + path,
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println(cmd.Name())
+			//fmt.Println(cmd.Name())
 			helpers.ExecCobraCmd(path)
 		},
 	}

@@ -31,7 +31,14 @@ func Exec(cmd string, args ...string) error {
 func ExecCobraCmd(path string) {
 	//path := filepath.Join(RootDir(), "notes", name, "index.md")
 	fmt.Println(path)
-	Exec("mdcat", path)
+	cmd := "cat " + path + " | sed '1{/^---$/!q;};1,/^---$/d' | mdcat"
+
+	out, err := exec.Command("bash", "-c", cmd).Output()
+	if err != nil {
+		fmt.Sprintf("Failed to execute command: %s", cmd)
+	}
+	fmt.Println(string(out))
+	//Exec("mdcat", path)
 }
 
 func RootDir() string {
@@ -56,7 +63,7 @@ func GetMDFiles(locations ...string) map[string]string {
 
 		err := filepath.Walk(location, func(path string, info os.FileInfo, err error) error {
 			if (filepath.Ext(path)) == ".md" {
-				fmt.Println(info.Name())
+				//fmt.Println(info.Name())
 				files[info.Name()[:len(info.Name())-3]] = path
 			}
 			return nil
