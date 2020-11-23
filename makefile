@@ -10,7 +10,7 @@ install:
 test:
 	go test -v ./uh/helpers
 	go test -v ./uh/cmd
-	go run ./uh/main.go intellij
+	go run ./uh/main.go
 	#go run ./uh/main.go vscode
 	#go run ./uh/main.go eclipse
 
