@@ -30,8 +30,8 @@ func Exec(cmd string, args ...string) error {
 
 func ExecCobraCmd(path string) {
 	//path := filepath.Join(RootDir(), "notes", name, "index.md")
-	fmt.Println(path)
-	cmd := "cat " + path + " | sed '1{/^---$/!q;};1,/^---$/d' | mdcat"
+
+	cmd := "cat " + path + " | sed '/^---/,/^---$/d' | mdcat"
 
 	out, err := exec.Command("bash", "-c", cmd).Output()
 	if err != nil {
@@ -39,6 +39,7 @@ func ExecCobraCmd(path string) {
 	}
 	fmt.Println(string(out))
 	//Exec("mdcat", path)
+	fmt.Printf("Note: %s\n", path)
 }
 
 func RootDir() string {

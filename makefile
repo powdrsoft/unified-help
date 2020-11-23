@@ -17,4 +17,4 @@ test:
 all:
 	build run install
 
-.PHONY: run build install all
+.PHONY: run build install test all
