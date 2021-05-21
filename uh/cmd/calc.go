@@ -9,6 +9,7 @@ import (
 
 var calcCmd = &cobra.Command{
 	Use:   "calc",
+	Aliases: []string{"calculator"},
 	Short: "A basic calculator",
 	Long: `A basic calculator, 
 Supports only + - * /

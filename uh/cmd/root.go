@@ -53,7 +53,7 @@ func Execute() {
 
 func containsCommandName(s []*cobra.Command, command string) bool {
 	for _, a := range s {
-		if a.Name() == command {
+		if strings.ToLower(a.Name()) == strings.ToLower(command) {
 			return true
 		}
 	}
@@ -97,7 +97,7 @@ func getMDFilesFromConfigNotes(configNotes []string) {
 func createFromConfig(name string, path string) *cobra.Command {
 	usr, _ := user.Current()
 	var cmd = &cobra.Command{
-		Use:   name,
+		Use:  strings.ToLower(name),
 		Short: strings.Replace(path, usr.HomeDir, "~", 1),
 		Long:  `Source: ` + path,
 		Run: func(cmd *cobra.Command, args []string) {
